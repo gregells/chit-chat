@@ -1,9 +1,20 @@
 var express = require('express');
 var router = express.Router();
+const postsController = require('../controllers/posts');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// All roots start with /posts
+
+// GET /posts
+router.get('/', postsController.index);
+
+// GET /posts/new
+router.get('/new', ensureLoggedIn, postsController.new);
+
+// GET /posts/:id (show functionality)
+router.get('/:id', postsController.show);
+
+// POST /posts
+router.post('/', ensureLoggedIn, postsController.create);
 
 module.exports = router;
