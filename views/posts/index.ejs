@@ -1,23 +1,24 @@
 <%- include('../partials/header') %>
 
-<h2>All Posts</h2>
-
-<div class="post-container">
     <% posts.forEach(function(p) { %>
-        <div class="post">
-            <img src="<%= p.postAuthorAvatar %>" alt="avatar">
-            <h5><%= p.postAuthorName %></h5>
-            <br>
-            <p><%= p.postContent %></p>
-            <br>
-            <p>
-                <!-- &#128078;
-                &#128077; -->
-            </p>
-            <br>
-            <a href="/posts/<%= p._id %>">VIEW</a>
+        <div class="card">
+            <div class="card-header">
+                <img src="<%= p.postAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
+                <%= p.postAuthorName %>
+                on
+                <%= p.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) %>
+            </div>
+            <div class="card-body">
+                <p><%= p.postContent %></p>
+                <p>
+                    <!-- &#128078;
+                    &#128077; -->
+                </p>
+                <hr>
+                <a href="/posts/<%= p._id %>" class="btn btn-primary">VIEW</a>
+            </div>
         </div>
+        <br>
     <% }) %>
-</div>
 
 <%- include('../partials/footer') %>

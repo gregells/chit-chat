@@ -1,27 +1,24 @@
 <%- include('../partials/header') %>
 
-<h2><%= post.postAuthorName %>'s Post:</h2>
-
-<div class="post-container">
-    <div class="post">
-        <img 
-            src="<%= post.postAuthorAvatar %>" 
-            alt="avatar" 
-            class="avatar">
-        <p><%= post.postAuthorName %></p>
-        <br>
-        <p><%= post.postContent %></p>
-        <br>
-        
-        <!-- <a href="/posts/<%= post._id %>/edit">EDIT</a> -->
-        
-        <form action="/posts/<%= post._id %>/edit" method="GET">
-            <button type="submit">EDIT</button>
-        </form>
-        <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST">
-            <button type="submit">DELETE</button>
-        </form>
+    <div class="card">
+        <div class="card-header">
+            <img src="<%= post.postAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
+            <%= post.postAuthorName %>
+            on
+            <%= post.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) %>
+        </div>
+        <div class="card-body">
+            <p class="w-100 p-3"><%= post.postContent %></p>
+            <hr>
+            <div class="row">
+                <form action="/posts/<%= post._id %>/edit" method="GET" class="col-2">
+                    <button type="submit" class="btn btn-secondary">EDIT</button>
+                </form>
+                <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="col-2">
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 
 <%- include('../partials/footer') %>

@@ -4,21 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
-    <img src="/images/trumpet.png">
-    <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>ALL POSTS</a>
-    <% if (user) { %>
-      <a href="/performers/new"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
-      ADD PERFORMER</a>
-      <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>NEW POST</a>
-      <a href="/logout">LOG OUT</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/images/trumpet.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+        Chit Chat
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/posts/" 
+            <%- title === 'All Posts' ? 'class="nav-link active"' : 'class="nav-link"' %>>
+            ALL POSTS</a>
+          <li class="nav-item">
+            <a href="/users/" 
+            <%- title === 'All Users' ? 'class="nav-link active"' : 'class="nav-link"' %>>
+            ALL USERS</a>
+          
+          <% if (user) { %>
+          <li class="nav-item">
+            <a href="/posts/new" 
+            <%- title === 'New Post' ? 'class="nav-link active"' : 'class="nav-link"' %>>
+            NEW POST</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+            LOG OUT</a>
+          </li>
+          <% } else { %>
+            <li class="nav-item">
+            <a href="/auth/google" class="nav-link">
+              LOG IN&nbsp;
+              <img src="https://i.imgur.com/FHjYyi0.png" alt="Logo" width="30" height="30">
+            </a>
+            </li>
+          <% } %>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
   </nav>
-  <main>
+  
+  
+  <div class="container">
     <h1><%= title %></h1>
