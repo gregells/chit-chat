@@ -60,3 +60,7 @@ nav > a {
 .login img {
   height: 30px;
 }
+
+.post {
+  border: 1px black solid;
+}

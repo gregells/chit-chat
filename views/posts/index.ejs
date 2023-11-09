@@ -2,4 +2,22 @@
 
 <h2>All Posts</h2>
 
+<div class="post-container">
+    <% posts.forEach(function(p) { %>
+        <div class="post">
+            <img src="<%= p.postAuthorAvatar %>" alt="avatar">
+            <h5><%= p.postAuthorName %></h5>
+            <br>
+            <p><%= p.postContent %></p>
+            <br>
+            <p>
+                <!-- &#128078;
+                &#128077; -->
+            </p>
+            <br>
+            <a href="/posts/<%= p._id %>">VIEW</a>
+        </div>
+    <% }) %>
+</div>
+
 <%- include('../partials/footer') %>

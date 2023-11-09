@@ -17,4 +17,13 @@ router.get('/:id', postsController.show);
 // POST /posts
 router.post('/', ensureLoggedIn, postsController.create);
 
+// DELETE /posts/:id/
+router.delete('/:id/', postsController.delete);
+
+// GET /posts/:id/edit
+router.get('/:id/edit', postsController.edit);
+
+// PUT /posts/:id
+router.put('/:id', postsController.update);
+
 module.exports = router;
