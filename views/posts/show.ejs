@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+    <!-- Show the post itself -->
     <div class="card">
         <div class="card-header">
             <img src="<%= post.postAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
@@ -20,5 +21,55 @@
             </div>
         </div>
     </div>
+    <br>
+
+    <h2>Comments:</h2>
+
+    <!-- Show a form for adding a new comment -->
+    <% if (user) { %>
+    <div class="card">
+        <form action="/posts/<%= post._id %>/comments" method="POST">
+            <div class="card-header">
+                Add a comment:
+            </div>
+            <div class="card-body">
+                <textarea name="commentContent" class="w-100 p-3" style="height: 200px"></textarea>
+                <hr>
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <% } %>
+
+    <!-- Show the comments if there are any -->
+    <% if (post.comments.length) { %>
+        <% post.comments.forEach(function(c) { %>
+            <div class="card">
+                <div class="card-header">
+                    <img src="<%= c.commentAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
+                    <%= c.commentAuthorName %>
+                    on
+                    <%= c.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) %>
+                </div>
+                <div class="card-body">
+                    <p class="w-100 p-3"><%= c.commentContent %></p>
+                    <hr>
+                    <!-- To do: hide these buttons if you're not the one who commented: -->
+                    <div class="row">
+                        <form action="/comments/<%= c._id %>/edit" method="GET" class="col-2">
+                            <button type="submit" class="btn btn-secondary">EDIT</button>
+                        </form>
+                        <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="col-2">
+                            <button type="submit" class="btn btn-danger">DELETE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+        <% }); %>
+    <% } else { %>
+        <h5>No comments yet...</h5>
+    <% } %>
 
 <%- include('../partials/footer') %>

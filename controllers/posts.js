@@ -16,6 +16,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
+    // Find the post and populate the comments:
     const post = await Post.findById(req.params.id);
     res.render('posts/show', { title: 'Post Details', post });
 }
@@ -45,42 +46,23 @@ async function create(req, res) {
 
 async function deletePost(req, res) {
     const post = await Post.findById(req.params._id);
-    console.log(post);
     
     try {
         await Post.findByIdAndDelete(req.params.id);
     } catch (err) {
         console.log(err);
         res.redirect('/posts');
-
     }
 
-    // if ( post._id === req.params.id && post.user === req.user._id) {
-    //     try {
-    //         await Post.findByIdAndDelete(req.params.id);
-    //     } catch (err) {
-    //         console.log(err);
-    //         res.redirect('/posts');
-
-    //     }
-    // }
+    // Redirect after CRUDing data:
     res.redirect('/posts');
 }
-
-// function deletePost(req, res) {
-//     Post.findOne({
-//         '_id': req.params.id,
-//         'postAuthor': req.user._id
-//     }).then(function(post) {
-//         if (!post) return res.redirect('/posts');
-        
-//     })
-// }
 
 async function edit(req, res) {
     const post = await Post.findById(req.params.id);
     console.log(post);
 
+    // Render the prefilled form:
     res.render('posts/edit', {
         title: 'Edit Post',
         post
@@ -92,5 +74,6 @@ async function update(req, res) {
     post.postContent = req.body.postContent;
     await post.save();
 
+    // Redirect after CRUDing data:
     res.redirect(`/posts/${ req.params.id }`);
 }

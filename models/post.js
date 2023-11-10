@@ -9,6 +9,8 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true,
     },
+    commentAuthorName: String,
+    commentAuthorAvatar: String,
     commentThumbsUp: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
