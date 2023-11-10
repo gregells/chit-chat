@@ -12,7 +12,7 @@ To make posts and comment on posts, users must sign-in using a Google account.
 The app is built using an express server and a mongoDB database. The website is hosted by Heroku and the database is hosted by Atlas. Authentication is provided by Google's OAuth API.
 
 # Entity Relation Diagram:
-![ERD image](https://github.com/Grglls/chit-chat/public/images/ERD-3.jpg)
+![ERD image](/public/images/ERD.jpg)
 
 ## Known Bugs:
 <!-- No known bugs. -->
