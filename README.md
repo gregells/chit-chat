@@ -8,14 +8,14 @@ Visitor to the site may browse posts and comments without signing in.
 
 To make posts and comment on posts, users must sign-in using a Google account.
 
-## Technologies Used:
+## Key Technologies Used:
 The app is built using an express server and a mongoDB database. The website is hosted by Heroku and the database is hosted by Atlas. Authentication is provided by Google's OAuth API.
 
 # Entity Relation Diagram:
 ![ERD image](/public/images/ERD.jpg)
 
 ## Known Bugs:
-<!-- No known bugs. -->
+No known bugs.
 
 ## Future Development:
 ### Short Term:

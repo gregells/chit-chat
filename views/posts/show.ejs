@@ -12,12 +12,16 @@
             <p class="w-100 p-3"><%= post.postContent %></p>
             <hr>
             <div class="row">
+                <% if (user) { %>
+
                 <form action="/posts/<%= post._id %>/edit" method="GET" class="col-2">
                     <button type="submit" class="btn btn-secondary">EDIT</button>
                 </form>
                 <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="col-2">
                     <button type="submit" class="btn btn-danger">DELETE</button>
                 </form>
+                
+                <% } %>
             </div>
         </div>
     </div>
@@ -57,12 +61,16 @@
                     <hr>
                     <!-- To do: hide these buttons if you're not the one who commented: -->
                     <div class="row">
+                        <% if (user) { %>
+
                         <form action="/comments/<%= c._id %>/edit" method="GET" class="col-2">
                             <button type="submit" class="btn btn-secondary">EDIT</button>
                         </form>
                         <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="col-2">
                             <button type="submit" class="btn btn-danger">DELETE</button>
                         </form>
+
+                        <% } %>
                     </div>
                 </div>
             </div>

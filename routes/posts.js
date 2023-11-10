@@ -18,12 +18,12 @@ router.get('/:id', postsController.show);
 router.post('/', ensureLoggedIn, postsController.create);
 
 // DELETE /posts/:id/
-router.delete('/:id/', postsController.delete);
+router.delete('/:id/', ensureLoggedIn, postsController.delete);
 
 // GET /posts/:id/edit
-router.get('/:id/edit', postsController.edit);
+router.get('/:id/edit', ensureLoggedIn, postsController.edit);
 
 // PUT /posts/:id
-router.put('/:id', postsController.update);
+router.put('/:id', ensureLoggedIn, postsController.update);
 
 module.exports = router;
