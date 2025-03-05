@@ -15,10 +15,10 @@
         <% if (user) { %>
 
         <form action="/posts/<%= post._id %>/edit" method="GET" class="col-2">
-          <button type="submit" class="btn btn-secondary">EDIT</button>
+          <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
         </form>
         <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="col-2">
-          <button type="submit" class="btn btn-danger">DELETE</button>
+          <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
         </form>
         
         <% } %>
@@ -39,7 +39,7 @@
       <div class="card-body">
         <textarea name="commentContent" class="w-100 p-3" style="height: 200px"></textarea>
         <hr>
-        <button type="submit" class="btn btn-primary">Add Comment</button>
+        <button type="submit" class="btn btn-sm btn-primary">Add Comment</button>
       </div>
     </form>
   </div>
@@ -64,10 +64,10 @@
             <% if (user) { %>
 
             <form action="/comments/<%= c._id %>/edit" method="GET" class="col-2">
-              <button type="submit" class="btn btn-secondary">EDIT</button>
+              <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
             </form>
             <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="col-2">
-              <button type="submit" class="btn btn-danger">DELETE</button>
+              <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
             </form>
 
             <% } %>
