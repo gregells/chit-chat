@@ -13,17 +13,24 @@
     <div class="card-body">
       <p><%= post.postContent %></p>
       <hr>
-      <div class="row">
+      <div class="d-flex">
+        <!-- To do: hide these buttons if you're not the one who commented: -->
+        <!-- To do: show buttons for thumbsUp & thumbsDown -->
         <% if (user) { %>
 
-        <form action="/posts/<%= post._id %>/edit" method="GET" class="d-inline-flex w-auto pe-0">
+        <form action="/posts/<%= post._id %>/edit" method="GET" class="d-inline-flex w-auto pe-2">
           <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
         </form>
-        <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="d-inline-flex w-auto pe-0">
+        <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="d-inline-flex w-auto pe-2">
           <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
         </form>
         
         <% } %>
+
+        <div class="d-inline-flex w-auto ms-auto">
+          <span class="badge text-bg-secondary py-2">&#128077; <%= post.postThumbsUp.length %></span>
+          <span class="badge text-bg-secondary py-2 ms-2">&#128078; <%= post.postThumbsDown.length %></span>
+        </div>
       </div>
     </div>
   </div>
@@ -65,17 +72,22 @@
           <hr>
           <!-- To do: hide these buttons if you're not the one who commented: -->
           <!-- To do: show buttons for thumbsUp & thumbsDown -->
-          <div class="row">
+          <div class="d-flex">
             <% if (user) { %>
 
-            <form action="/comments/<%= c._id %>/edit" method="GET" class="d-inline-flex w-auto pe-0">
+            <form action="/comments/<%= c._id %>/edit" method="GET" class="d-inline-flex w-auto pe-2">
               <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
             </form>
-            <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="d-inline-flex w-auto pe-0">
+            <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="d-inline-flex w-auto pe-2">
               <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
             </form>
 
             <% } %>
+
+            <div class="d-inline-flex w-auto ms-auto">
+              <span class="badge text-bg-secondary py-2">&#128077; <%= c.commentThumbsUp.length %></span>
+              <span class="badge text-bg-secondary py-2 ms-2">&#128078; <%= c.commentThumbsDown.length %></span>
+            </div>
           </div>
         </div>
       </div>
