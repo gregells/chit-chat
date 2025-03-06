@@ -66,13 +66,15 @@ async function update(req, res) {
     'comments._id': req.params.id,
     'comments.commentAuthor': req.user._id
   });
-  // Find the index of the comment to be edited:
-  const index = post.comments.findIndex((comment) => comment._id == req.params.id);
+  const comment = post.comments.id(req.params.id);
+  Object.assign(comment, req.body);
 
-  // Update the comment and save the post:
-  post.comments[index].commentContent = req.body.commentContent;
-  await post.save();
-
-  // Redirect after CRUDing data:
-  res.redirect(`/posts/${ post._id }`);
+  try {
+    await post.save();
+    
+    // Redirect after CRUDing data:
+    res.redirect(`/posts/${ post._id }`);
+  } catch (err) {
+    console.log(err);
+  }
 }
