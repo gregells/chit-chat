@@ -14,10 +14,10 @@
       <div class="row">
         <% if (user) { %>
 
-        <form action="/posts/<%= post._id %>/edit" method="GET" class="col-2">
+        <form action="/posts/<%= post._id %>/edit" method="GET" class="d-inline-flex w-auto pe-0">
           <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
         </form>
-        <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="col-2">
+        <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST" class="d-inline-flex w-auto pe-0">
           <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
         </form>
         
@@ -60,13 +60,14 @@
           <p><%= c.commentContent %></p>
           <hr>
           <!-- To do: hide these buttons if you're not the one who commented: -->
+          <!-- To do: show buttons for thumbsUp & thumbsDown -->
           <div class="row">
             <% if (user) { %>
 
-            <form action="/comments/<%= c._id %>/edit" method="GET" class="col-2">
+            <form action="/comments/<%= c._id %>/edit" method="GET" class="d-inline-flex w-auto pe-0">
               <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
             </form>
-            <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="col-2">
+            <form action="/comments/<%= c._id %>/?_method=DELETE" method="POST" class="d-inline-flex w-auto pe-0">
               <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
             </form>
 
