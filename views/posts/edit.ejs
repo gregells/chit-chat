@@ -4,9 +4,11 @@
     <form action="/posts/<%= post._id %>/?_method=PUT" method="POST">
       <div class="card-header">
         <img src="<%= post.postAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
-        <%= post.postAuthorName %>
-        on
-        <%= post.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) %>
+        <span class="align-middle">
+          <%= post.postAuthorName %>
+          on
+          <%= post.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) %>
+        </span>
       </div>
       <div class="card-body">
         <textarea name="postContent" class="w-100" style="height: 200px"><%= post.postContent %></textarea>
