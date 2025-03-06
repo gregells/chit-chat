@@ -18,15 +18,15 @@ async function create(req, res) {
 
   // Push the new comment to the array of comments:
   post.comments.push(req.body);
+
   try {
-    // Try save changes to the post:
     await post.save();
+
+    // Redirect after CRUDing data:
+    res.redirect(`/posts/${ post._id }`);
   } catch (err) {
     console.log(err);
   }
-
-  // Redirect the request since data has changed:
-  res.redirect(`/posts/${ post._id }`);
 }
 
 async function deleteComment(req, res, next) {
@@ -36,6 +36,7 @@ async function deleteComment(req, res, next) {
     'comments.commentAuthor': req.user._id
   });
   if (!post) return res.redirect('/posts');
+
   try {
     post.comments.remove(req.params.id);
     await post.save();
@@ -43,7 +44,7 @@ async function deleteComment(req, res, next) {
     // Redirect after CRUDing data:
     res.redirect(`/posts/${post._id}`);
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
@@ -55,7 +56,7 @@ async function edit(req, res, next) {
   });
   if(!post) return res.redirect('/posts');
   const comment = post.comments.id(req.params.id);
-
+  
   // Render the comment into it's own view:
   res.render('comments/edit', {title: 'Edit Comment', comment});
 }
