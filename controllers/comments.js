@@ -39,6 +39,8 @@ async function deleteComment(req, res, next) {
   try {
     post.comments.remove(req.params.id);
     await post.save();
+    
+    // Redirect after CRUDing data:
     res.redirect(`/posts/${post._id}`);
   } catch (err) {
     console.log(err)
@@ -54,7 +56,7 @@ async function edit(req, res, next) {
   if(!post) return res.redirect('/posts');
   const comment = post.comments.id(req.params.id);
 
-  // Render the comment into it's ownview:
+  // Render the comment into it's own view:
   res.render('comments/edit', {title: 'Edit Comment', comment});
 }
 
