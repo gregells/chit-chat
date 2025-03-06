@@ -12,12 +12,11 @@
       </div>
       <div class="card-body">
         <p><%= p.postContent %></p>
-        <p>
-          <!-- &#128078;
-          &#128077; -->
-        </p>
         <hr>
         <a href="/posts/<%= p._id %>" class="btn btn-sm btn-primary">VIEW</a>
+        <span class="badge text-bg-secondary py-2 float-end ms-2"><%= p.comments.length %> comments</span>
+        <span class="badge text-bg-secondary py-2 float-end ms-2">&#128078; <%= p.postThumbsDown.length %></span>
+        <span class="badge text-bg-secondary py-2 float-end">&#128077; <%= p.postThumbsUp.length %></span>
       </div>
     </div>
     <br>
