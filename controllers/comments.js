@@ -9,7 +9,6 @@ module.exports = {
 
 async function create(req, res) {
   // Find the post that the comment is to be added to:
-
   const post = await Post.findById(req.params.id);
 
   // Add the user information:
@@ -30,46 +29,33 @@ async function create(req, res) {
   res.redirect(`/posts/${ post._id }`);
 }
 
-function deleteComment(req, res, next) {
+async function deleteComment(req, res, next) {
   // Find the post with the comment to be deleted:
-  Post.findOne({
+  const post = await Post.findOne({
     'comments._id': req.params.id,
     'comments.commentAuthor': req.user._id
-  }).then(function(post) {
-    if(!post) return res.redirect('/posts');
-    post.comments.remove(req.params.id);
-    post.save().then(function() {
-      res.redirect(`/posts/${ post._id }`);
-    }).catch(function(err) {
-      return next(err);
-    });
   });
+  if (!post) return res.redirect('/posts');
+  try {
+    post.comments.remove(req.params.id);
+    await post.save();
+    res.redirect(`/posts/${post._id}`);
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-function edit(req, res, next) {
+async function edit(req, res, next) {
   // Find the post with the comment to be edited:
-  Post.findOne({
+  const post = await Post.findOne({
     'comments._id': req.params.id,
     'comments.commentAuthor': req.user._id
-  }).then(function(post) {
-    if(!post) return res.redirect('/posts');
-    // Find the index of the comment to be edited:
-    const index = post.comments.findIndex((comment) => comment._id == req.params.id);
-
-    // Save a copy of the comment:
-    const comment = post.comments[index];
-
-    // TO BE REFACTORED:
-    post.save().then(function() {
-      // Render the comment into it's ownview:
-      res.render('comments/edit', {
-        title: 'Edit Comment',
-        comment
-      });
-    }).catch(function(err) {
-      return next(err);
-    });
   });
+  if(!post) return res.redirect('/posts');
+  const comment = post.comments.id(req.params.id);
+
+  // Render the comment into it's ownview:
+  res.render('comments/edit', {title: 'Edit Comment', comment});
 }
 
 async function update(req, res) {
