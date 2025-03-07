@@ -82,7 +82,6 @@
         <div class="card-body">
           <p><%= c.commentContent %></p>
           <hr>
-          <!-- To do: show buttons for thumbsUp & thumbsDown -->
           <div class="d-flex">
             <% if (user?._id.equals(c.commentAuthor)) { %>
 
@@ -104,8 +103,14 @@
                   &#128077; <%= c.commentThumbsUp.length %>
                 </button>
               </form>
-              <span class="badge text-bg-secondary py-2">&#128077; <%= c.commentThumbsUp.length %></span>
-              <span class="badge text-bg-secondary py-2 ms-2">&#128078; <%= c.commentThumbsDown.length %></span>
+              <form action="/comments/<%= c._id %>/down" method="POST" class="d-inline-flex w-auto pe-2">
+                <button
+                  type="submit" 
+                  class="btn btn-sm <%= c.commentThumbsDown.includes(user?._id) ? "btn-danger" : "btn-outline-danger" %>"
+                >
+                  &#128078; <%= c.commentThumbsDown.length %>
+                </button>
+              </form>
             </div>
           </div>
         </div>
