@@ -8,7 +8,8 @@ module.exports = {
   delete: deletePost,
   edit,
   update,
-  toggleThumbsUp
+  toggleThumbsUp,
+  toggleThumbsDown
 };
 
 async function index(req, res) {
@@ -111,6 +112,33 @@ async function toggleThumbsUp(req, res) {
   } else {
     // Push the logged in users _id to the array of postThumbsUp:
     post.postThumbsUp.push(req.user._id);
+  }
+
+  // console.log('the request is: ', req);
+  console.log('the Referer is: ', req.get('referer'));
+
+  try {
+    await post.save();
+
+    // Redirect after CRUDing data:
+    res.redirect(`/posts/${ post._id }`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function toggleThumbsDown(req, res) {
+  // Find the post where the thumbsDown is to be toggled:
+  const post = await Post.findById(req.params.id);
+  
+  // Check if the logged in user has already given it a thumbsDown:
+  if (post.postThumbsDown.includes(req.user._id)) {
+    // Remove the logged in users _id from the array of postThumbsDown:
+    const index = post.postThumbsDown.indexOf(req.user._id);
+    post.postThumbsDown.splice(index, 1);
+  } else {
+    // Push the logged in users _id to the array of postThumbsDown:
+    post.postThumbsDown.push(req.user._id);
   }
 
   // console.log('the request is: ', req);
