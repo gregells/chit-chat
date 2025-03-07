@@ -14,7 +14,6 @@
       <p><%= post.postContent %></p>
       <hr>
       <div class="d-flex">
-        <!-- To do: show buttons for thumbsUp & thumbsDown -->
         <% if (user?._id.equals(post.postAuthor)) { %>
 
         <form action="/posts/<%= post._id %>/edit" method="GET" class="d-inline-flex w-auto pe-2">
@@ -28,10 +27,20 @@
 
         <div class="d-inline-flex w-auto ms-auto">
           <form action="/posts/<%= post._id %>/up" method="POST" class="d-inline-flex w-auto pe-2">
-            <button type="submit" class="btn btn-sm btn-success">&#128077; <%= post.postThumbsUp.length %></button>
+            <button
+              type="submit" 
+              class="btn btn-sm <%= post.postThumbsUp.includes(user?._id) ? "btn-success" : "btn-outline-success" %>"
+            >
+              &#128077; <%= post.postThumbsUp.length %>
+            </button>
           </form>
           <form action="/posts/<%= post._id %>/down" method="POST" class="d-inline-flex w-auto pe-2">
-            <button type="submit" class="btn btn-sm btn-danger">&#128078; <%= post.postThumbsDown.length %></button>
+            <button
+              type="submit"
+              class="btn btn-sm <%= post.postThumbsDown.includes(user?._id) ? "btn-danger" : "btn-outline-danger" %>"
+            >
+              &#128078; <%= post.postThumbsDown.length %>
+            </button>
           </form>
         </div>
       </div>
