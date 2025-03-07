@@ -45,23 +45,32 @@ async function create(req, res) {
 }
 
 async function deletePost(req, res) {
-  const post = await Post.findById(req.params._id);
+  const post = await Post.findById(req.params.id);
+  
+  // Allow only the user who created the post to delete it:
+  if (!req.user._id.equals(post.postAuthor)) {
+    console.log('This user did not create the post...');
+    return res.redirect('/posts');
+  }
   
   try {
     await Post.findByIdAndDelete(req.params.id);
+    // Redirect after CRUDing data:
+    res.redirect('/posts');
   } catch (err) {
     console.log(err);
-    res.redirect('/posts');
   }
-
-  // Redirect after CRUDing data:
-  res.redirect('/posts');
 }
 
 async function edit(req, res) {
   const post = await Post.findById(req.params.id);
-  console.log(post);
-
+  
+  // Allow only the user who created the post to see the edit page:
+  if (!req.user._id.equals(post.postAuthor)) {
+    console.log('This user did not create the post...');
+    return res.redirect('/posts');
+  }
+  
   // Render the prefilled form:
   res.render('posts/edit', {
     title: 'Edit Post',
@@ -72,6 +81,12 @@ async function edit(req, res) {
 async function update(req, res) {
   const post = await Post.findById(req.params.id);
   post.postContent = req.body.postContent;
+  
+  // Allow only the user who created the post to update it:
+  if (!req.user._id.equals(post.postAuthor)) {
+    console.log('This user did not create the post...');
+    return res.redirect('/posts');
+  }
 
   try {
     await post.save();
