@@ -27,6 +27,9 @@
         <% } %>
 
         <div class="d-inline-flex w-auto ms-auto">
+          <form action="/posts/<%= post._id %>/up" method="POST" class="d-inline-flex w-auto pe-2">
+            <button type="submit" class="btn btn-sm btn-success">&#128077; <%= post.postThumbsUp.length %></button>
+          </form>
           <span class="badge text-bg-secondary py-2">&#128077; <%= post.postThumbsUp.length %></span>
           <span class="badge text-bg-secondary py-2 ms-2">&#128078; <%= post.postThumbsDown.length %></span>
         </div>
