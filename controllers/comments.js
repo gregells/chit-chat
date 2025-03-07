@@ -37,6 +37,13 @@ async function deleteComment(req, res, next) {
   });
   if (!post) return res.redirect('/posts');
 
+  const comment = post.comments.id(req.params.id);
+  // Allow only the user who created the comment to delete it:
+  if (!req.user._id.equals(comment.commentAuthor)) {
+    console.log('This user did not create the post...');
+    return res.redirect(`/posts/${post._id}`);
+  }
+
   try {
     post.comments.remove(req.params.id);
     await post.save();
@@ -55,7 +62,13 @@ async function edit(req, res, next) {
     'comments.commentAuthor': req.user._id
   });
   if(!post) return res.redirect('/posts');
+
   const comment = post.comments.id(req.params.id);
+  // Allow only the user who created the comment to see the edit page:
+  if (!req.user._id.equals(comment.commentAuthor)) {
+    console.log('This user did not create the post...');
+    return res.redirect(`/posts/${post._id}`);
+  }
   
   // Render the comment into it's own view:
   res.render('comments/edit', {title: 'Edit Comment', comment});
@@ -68,6 +81,13 @@ async function update(req, res) {
     'comments.commentAuthor': req.user._id
   });
   const comment = post.comments.id(req.params.id);
+
+  // Allow only the user who created the comment to update it:
+  if (!req.user._id.equals(comment.commentAuthor)) {
+    console.log('This user did not create the post...');
+    return res.redirect(`/posts/${post._id}`);
+  }
+
   Object.assign(comment, req.body);
 
   try {
