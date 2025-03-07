@@ -26,4 +26,7 @@ router.get('/:id/edit', ensureLoggedIn, postsController.edit);
 // PUT /posts/:id
 router.put('/:id', ensureLoggedIn, postsController.update);
 
+// POST /posts/:id
+router.post('/:id/up', ensureLoggedIn, postsController.toggleThumbsUp);
+
 module.exports = router;
