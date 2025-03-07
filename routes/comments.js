@@ -15,4 +15,7 @@ router.get('/comments/:id/edit', ensureLoggedIn, commentsController.edit);
 // PUT /comments/:id
 router.put('/comments/:id', ensureLoggedIn, commentsController.update);
 
+// POST /comments/:id/up
+router.post('/comments/:id/up', ensureLoggedIn, commentsController.toggleThumbsUp);
+
 module.exports = router;
