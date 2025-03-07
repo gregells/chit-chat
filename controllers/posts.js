@@ -7,7 +7,8 @@ module.exports = {
   create,
   delete: deletePost,
   edit,
-  update
+  update,
+  toggleThumbsUp
 };
 
 async function index(req, res) {
@@ -93,6 +94,32 @@ async function update(req, res) {
     
     // Redirect after CRUDing data:
     res.redirect(`/posts/${ req.params.id }`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function toggleThumbsUp(req, res) {
+  // Find the post that the comment is to be added to:
+  const post = await Post.findById(req.params.id);
+  
+  if (post.postThumbsUp.includes(req.user._id)) {
+    // Remove the logged in users _id from the array of postThumbsUp:
+    const index = post.postThumbsUp.indexOf(req.user._id);
+    post.postThumbsUp.splice(index, 1);
+  } else {
+    // Push the logged in users _id to the array of postThumbsUp:
+    post.postThumbsUp.push(req.user._id);
+  }
+
+  // console.log('the request is: ', req);
+  console.log('the Referer is: ', req.get('referer'));
+
+  try {
+    await post.save();
+
+    // Redirect after CRUDing data:
+    res.redirect(`/posts/${ post._id }`);
   } catch (err) {
     console.log(err);
   }
