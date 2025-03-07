@@ -6,6 +6,7 @@ module.exports = {
   edit,
   update,
   toggleThumbsUp,
+  toggleThumbsDown
 };
 
 async function create(req, res) {
@@ -141,3 +142,42 @@ async function toggleThumbsUp(req, res) {
   }
 }
 
+async function toggleThumbsDown(req, res) {
+  // Find the post that owns the comment to toggle thumbsDown on:
+  const post = await Post.findOne({
+    'comments._id': req.params.id,
+    'comments.commentAuthor': req.user._id
+  });
+  if (!post) return res.redirect('/posts');
+
+  const comment = post.comments.id(req.params.id);
+
+  // Check if the logged in user has already given it a thumbsDown:
+  if (comment.commentThumbsDown.includes(req.user._id)) {
+    // Remove the logged in users _id from the array of commentThumbsDown:
+    const index = comment.commentThumbsDown.indexOf(req.user._id);
+    comment.commentThumbsDown.splice(index, 1);
+  } else {
+    // Push the logged in users _id to the array of commentThumbsDown:
+    comment.commentThumbsDown.push(req.user._id);
+
+    // If the logged user has currently thumbsUp'ed the comment, remove the thumbsUp:
+    if (comment.commentThumbsUp.includes(req.user._id)) {
+      // Remove the logged in users _id from the array of commentThumbsUp:
+      const index = comment.commentThumbsUp.indexOf(req.user._id);
+      comment.commentThumbsUp.splice(index, 1);
+    }
+  }
+
+  // To-do: Use the referer attribute to redirect user back to the page they were on:
+  console.log('the Referer is: ', req.get('referer'));
+
+  try {
+    await post.save();
+
+    // Redirect after CRUDing data:
+    res.redirect(`/posts/${ post._id }`);
+  } catch (err) {
+    console.log(err);
+  }
+}
