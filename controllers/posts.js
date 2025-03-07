@@ -72,8 +72,13 @@ async function edit(req, res) {
 async function update(req, res) {
   const post = await Post.findById(req.params.id);
   post.postContent = req.body.postContent;
-  await post.save();
 
-  // Redirect after CRUDing data:
-  res.redirect(`/posts/${ req.params.id }`);
+  try {
+    await post.save();
+    
+    // Redirect after CRUDing data:
+    res.redirect(`/posts/${ req.params.id }`);
+  } catch (err) {
+    console.log(err);
+  }
 }
