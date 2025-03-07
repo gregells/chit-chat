@@ -100,9 +100,10 @@ async function update(req, res) {
 }
 
 async function toggleThumbsUp(req, res) {
-  // Find the post that the comment is to be added to:
+  // Find the post where the thumbsUp is to be toggled:
   const post = await Post.findById(req.params.id);
   
+  // Check if the logged in user has already given it a thumbsUp:
   if (post.postThumbsUp.includes(req.user._id)) {
     // Remove the logged in users _id from the array of postThumbsUp:
     const index = post.postThumbsUp.indexOf(req.user._id);
