@@ -105,8 +105,7 @@ async function update(req, res) {
 async function toggleThumbsUp(req, res) {
   // Find the post that owns the comment to toggle thumbsUp on:
   const post = await Post.findOne({
-    'comments._id': req.params.id,
-    'comments.commentAuthor': req.user._id
+    'comments._id': req.params.id
   });
   if (!post) return res.redirect('/posts');
 
@@ -145,8 +144,7 @@ async function toggleThumbsUp(req, res) {
 async function toggleThumbsDown(req, res) {
   // Find the post that owns the comment to toggle thumbsDown on:
   const post = await Post.findOne({
-    'comments._id': req.params.id,
-    'comments.commentAuthor': req.user._id
+    'comments._id': req.params.id
   });
   if (!post) return res.redirect('/posts');
 
