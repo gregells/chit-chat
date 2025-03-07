@@ -14,9 +14,8 @@
       <p><%= post.postContent %></p>
       <hr>
       <div class="d-flex">
-        <!-- To do: hide these buttons if you're not the one who commented: -->
         <!-- To do: show buttons for thumbsUp & thumbsDown -->
-        <% if (user) { %>
+        <% if (user?._id.equals(post.postAuthor)) { %>
 
         <form action="/posts/<%= post._id %>/edit" method="GET" class="d-inline-flex w-auto pe-2">
           <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
@@ -70,10 +69,9 @@
         <div class="card-body">
           <p><%= c.commentContent %></p>
           <hr>
-          <!-- To do: hide these buttons if you're not the one who commented: -->
           <!-- To do: show buttons for thumbsUp & thumbsDown -->
           <div class="d-flex">
-            <% if (user) { %>
+            <% if (user?._id.equals(c.commentAuthor)) { %>
 
             <form action="/comments/<%= c._id %>/edit" method="GET" class="d-inline-flex w-auto pe-2">
               <button type="submit" class="btn btn-sm btn-secondary">EDIT</button>
