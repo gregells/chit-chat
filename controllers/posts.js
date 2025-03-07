@@ -112,9 +112,16 @@ async function toggleThumbsUp(req, res) {
   } else {
     // Push the logged in users _id to the array of postThumbsUp:
     post.postThumbsUp.push(req.user._id);
+
+    // If the logged user has currently thumbsDown'ed the post, remove the thumbsDown:
+    if (post.postThumbsDown.includes(req.user._id)) {
+      // Remove the logged in users _id from the array of postThumbsDown:
+      const index = post.postThumbsDown.indexOf(req.user._id);
+      post.postThumbsDown.splice(index, 1);
+    }
   }
 
-  // console.log('the request is: ', req);
+  // To-do: Use the referer attribute to redirect user back to the page they were on:
   console.log('the Referer is: ', req.get('referer'));
 
   try {
@@ -139,9 +146,16 @@ async function toggleThumbsDown(req, res) {
   } else {
     // Push the logged in users _id to the array of postThumbsDown:
     post.postThumbsDown.push(req.user._id);
+
+    // If the logged user has currently thumbsUp'ed the post, remove the thumbsUp:
+    if (post.postThumbsUp.includes(req.user._id)) {
+      // Remove the logged in users _id from the array of postThumbsUp:
+      const index = post.postThumbsUp.indexOf(req.user._id);
+      post.postThumbsUp.splice(index, 1);
+    }
   }
 
-  // console.log('the request is: ', req);
+  // To-do: Use the referer attribute to redirect user back to the page they were on:
   console.log('the Referer is: ', req.get('referer'));
 
   try {
