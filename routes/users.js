@@ -8,4 +8,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 // GET /users
 router.get('/', usersController.index);
 
+// GET /users/:id (show functionality)
+router.get('/:id', usersController.show);
+
 module.exports = router;
