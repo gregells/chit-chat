@@ -18,7 +18,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  // Find the post and populate the comments:
+  // Find the post:
   const post = await Post.findById(req.params.id);
   res.render('posts/show', { title: 'Post Details', post });
 }
