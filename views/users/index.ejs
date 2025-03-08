@@ -2,13 +2,13 @@
 
 <div class="list-group">
   <% users.forEach(function(user) { %>
-    <a class="list-group-item">
-        <img src="<%= user.avatar %>" alt="avatar" width="30" height="30" class="rounded">
-        <span class="align-middle">
-          <%= user.name %>
-          joined on
-          <%= user.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric'}) %>
-        </span>
+    <a href="/users/<%= user._id %>" class="list-group-item">
+      <img src="<%= user.avatar %>" alt="avatar" width="30" height="30" class="rounded">
+      <span class="align-middle">
+        <%= user.name %>
+        joined on
+        <%= user.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric'}) %>
+      </span>
     </a>
   <% }) %>
 </div>
