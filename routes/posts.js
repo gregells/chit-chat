@@ -11,6 +11,9 @@ router.get('/', postsController.index);
 // GET /posts/new
 router.get('/new', ensureLoggedIn, postsController.new);
 
+// GET /posts/myposts
+router.get('/myposts', ensureLoggedIn, postsController.myPosts);
+
 // GET /posts/:id (show functionality)
 router.get('/:id', postsController.show);
 
