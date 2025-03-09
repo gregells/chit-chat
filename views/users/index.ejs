@@ -2,13 +2,15 @@
 
 <div class="list-group">
   <% users.forEach(function(user) { %>
-    <a href="/users/<%= user._id %>" class="list-group-item list-group-item-action">
+    <a href="/users/<%= user._id %>" class="list-group-item list-group-item-action d-flex align-items-center">
       <img src="<%= user.avatar %>" referrerpolicy="no-referrer" alt="avatar" width="30" height="30" class="rounded">
-      <span class="align-middle">
+      <span class="ms-2">
         <%= user.name %>
-        joined on
-        <%= user.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric'}) %>
       </span>
+      <small class="ms-auto">
+        joined
+        <%= user.createdAt.toISOString([], {year: 'numeric', month: 'numeric', day: 'numeric'}).split('T')[0] %>
+      </small>
     </a>
   <% }) %>
 </div>
