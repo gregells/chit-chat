@@ -19,5 +19,8 @@ async function show(req, res) {
     'postAuthor': req.params.id
   });
 
-  res.render('users/show', { title: `${user.name}'s Posts`, user, posts });
+  const lastChar = user.name[user.name.length - 1];
+  const title = lastChar === 's' ? `${user.name}' Posts` : `${user.name}'s Posts`;
+
+  res.render('users/show', { title, user, posts });
 }
