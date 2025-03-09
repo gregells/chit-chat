@@ -3,6 +3,7 @@ const Post = require('../models/post');
 module.exports = {
   index,
   show,
+  myPosts,
   new: newPost,
   create,
   delete: deletePost,
@@ -21,6 +22,14 @@ async function show(req, res) {
   // Find the post:
   const post = await Post.findById(req.params.id);
   res.render('posts/show', { title: 'Post Details', post });
+}
+
+async function myPosts(req, res) {
+  // Find the posts by the logged in user:
+  const posts = await Post.find({
+      'postAuthor': req.user._id
+    });
+  res.render('posts/myPosts', { title: 'My Posts', posts });
 }
 
 function newPost(req, res) {
