@@ -3,7 +3,7 @@
   <!-- Show the post itself -->
   <div class="card">
     <div class="card-header">
-      <img src="<%= post.postAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
+      <img src="<%= post.postAuthorAvatar %>" referrerpolicy="no-referrer" alt="avatar" width="30" height="30" class="rounded">
       <span class="align-middle">
         <%= post.postAuthorName %>
         on
@@ -72,7 +72,7 @@
     <% post.comments.forEach(function(c) { %>
       <div class="card">
         <div class="card-header">
-          <img src="<%= c.commentAuthorAvatar %>" alt="avatar" width="30" height="30" class="rounded">
+          <img src="<%= c.commentAuthorAvatar %>" referrerpolicy="no-referrer" alt="avatar" width="30" height="30" class="rounded">
           <span class="align-middle">
             <%= c.commentAuthorName %>
             on
