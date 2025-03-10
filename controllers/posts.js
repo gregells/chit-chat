@@ -4,6 +4,7 @@ module.exports = {
   index,
   show,
   myPosts,
+  search,
   new: newPost,
   create,
   delete: deletePost,
@@ -30,6 +31,14 @@ async function myPosts(req, res) {
       'postAuthor': req.user._id
     });
   res.render('posts/myPosts', { title: 'My Posts', posts });
+}
+
+async function search(req, res) {
+  // Find the posts where the content matches the search term:
+  const posts = await Post.find({
+      'postContent': new RegExp(req.query.searchTerm, 'i')
+    });
+  res.render('posts/search', { title: 'Search Results', posts, searchTerm: req.query.searchTerm });
 }
 
 function newPost(req, res) {
