@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+  <h2>Showing results for "<%= searchTerm %>"</h2>
+
+  <% posts.forEach(function(p) { %>
+    <div class="card">
+      <div class="card-header">
+        <img src="<%= p.postAuthorAvatar %>" referrerpolicy="no-referrer" alt="avatar" width="30" height="30" class="rounded">
+        <span class="align-middle">
+          <%= p.postAuthorName %>
+          on
+          <%= p.createdAt.toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) %>
+        </span>
+      </div>
+      <div class="card-body">
+        <p><%= p.postContent %></p>
+        <hr>
+        <a href="/posts/<%= p._id %>" class="btn btn-sm btn-primary">VIEW</a>
+        <span class="badge text-bg-secondary py-2 float-end ms-2"><%= p.comments.length %> comments</span>
+        <span class="badge text-bg-secondary py-2 float-end ms-2">&#128078; <%= p.postThumbsDown.length %></span>
+        <span class="badge text-bg-secondary py-2 float-end">&#128077; <%= p.postThumbsUp.length %></span>
+      </div>
+    </div>
+    <br>
+  <% }) %>
+
+<%- include('../partials/footer') %>
