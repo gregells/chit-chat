@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 
-/* GET home page. */
+// Redirect root route to /posts page:
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Chit Chat' });
+  res.redirect('/posts');
 });
 
 router.get('/auth/google', passport.authenticate(
