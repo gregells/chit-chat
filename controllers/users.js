@@ -13,14 +13,16 @@ async function index(req, res) {
 
 async function show(req, res) {
   // Find the user:
-  const user = await User.findById(req.params.id);
+  // Can't call it 'user' or else it will interfere with the navbar's conditional rendering.
+  const userToShow = await User.findById(req.params.id);
   // Find the user's posts:
   const posts = await Post.find({
     'postAuthor': req.params.id
   });
 
-  const lastChar = user.name[user.name.length - 1];
-  const title = lastChar === 's' ? `${user.name}' Posts` : `${user.name}'s Posts`;
+  // Create the title, only putting an apostrophy when the user's name doesn't end in 's':
+  const lastChar = userToShow.name[userToShow.name.length - 1];
+  const title = lastChar === 's' ? `${userToShow.name}' Posts` : `${userToShow.name}'s Posts`;
 
-  res.render('users/show', { title, user, posts });
+  res.render('users/show', { title, userToShow, posts });
 }
