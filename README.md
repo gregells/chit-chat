@@ -5,8 +5,6 @@ Visitors to the site may browse posts and comments without signing in.
 
 To create, edit, delete, or vote on posts and comments, users must sign-in using a Google account.
 
-[View the live website here.](https://chit-chat-5142bec3ce1d.herokuapp.com/)
-
 ## Screenshots:
 | ![Home Page](screenshots/1_home.png) | ![Navbar - Visitors](screenshots/2_nav_visitor.png) | ![Navbar - Users](screenshots/2_nav_user.png) |
 |:---:|:---:|:---:|
@@ -31,9 +29,15 @@ To create, edit, delete, or vote on posts and comments, users must sign-in using
 * Atlas: the database is hosted on MongoDB's Atlas service.
 
 ## Getting Started:
+[Try the live website here.](https://chit-chat-5142bec3ce1d.herokuapp.com/)
 
+The project was planned out in a Trello board, view it on Trello [here.](https://trello.com/b/4HMmkMu4/chit-chat-project-planning)
 
-## Future Development:
+The Entity Relationship Diagram (ERD) was made using Lucid Chart and can be seen in the Trello board.
+
+Wireframes of the various pages were made using XXX and can be seen in the Trello board.
+
+## Future Development Plans:
 * Expand search functionality to include comments and user names.
 * Ability to sort posts by thumbs-up, thumbs-down, newer, older.
 * See edit history of posts & comments.
