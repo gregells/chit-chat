@@ -39,8 +39,8 @@ Wireframes of the various pages were made using XXX and can be seen in the Trell
 
 ## Future Development Plans:
 * Expand search functionality to include comments and user names.
-* Ability to sort posts by thumbs-up, thumbs-down, newer, older.
-* See edit history of posts & comments.
+* Add ability to sort posts by thumbs-up, thumbs-down, newer, older.
+* Add ability to see edit history of posts & comments.
 
 ## Known Bugs:
 No known bugs at this time.
