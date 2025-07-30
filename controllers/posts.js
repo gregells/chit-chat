@@ -47,7 +47,6 @@ function newPost(req, res) {
 }
 
 async function create(req, res) {
-  console.log(req.body.postContent);
   // Add the user information:
   req.body.postAuthor = req.user._id;
   req.body.postAuthorName = req.user.name;
