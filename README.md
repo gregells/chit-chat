@@ -8,15 +8,15 @@ To create, edit, delete, or vote on posts and comments, users must sign-in using
 ## Screenshots:
 | ![Home Page](screenshots/1_home.png) | ![Navbar - Visitors](screenshots/2_nav_visitor.png) | ![Navbar - Users](screenshots/2_nav_user.png) |
 |:---:|:---:|:---:|
-| Home Page | Navbar - Visitors | Navbar - Users |
+| Home Page&nbsp;&nbsp;&nbsp;&nbsp; | Navbar - Visitors | Navbar - Users&nbsp;&nbsp;&nbsp; |
 
 | ![Post - Visitors](screenshots/3_post_visitor.png) | ![Post - Users](screenshots/3_post_user.png) | ![New Post](screenshots/4_new_post.png) |
 |:---:|:---:|:---:|
-| Post - Visitors | Post - Users | New Post |
+| Post - Visitors | Post - Users&nbsp;&nbsp;&nbsp; | New Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 
 | ![My Posts](screenshots/5_my_posts.png) | ![All Users](screenshots/6_all_users.png) | ![Search](screenshots/7_search.png) |
 |:---:|:---:|:---:|
-| My Posts | All Users | Search |
+| My Posts&nbsp;&nbsp; | All Users&nbsp;&nbsp; | Search |
 
 ## Technologies Used:
 * Node.js: the app is built using a Node.js server.
