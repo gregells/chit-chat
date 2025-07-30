@@ -128,9 +128,6 @@ async function toggleThumbsUp(req, res) {
     }
   }
 
-  // To-do: Use the referer attribute to redirect user back to the page they were on:
-  console.log('the Referer is: ', req.get('referer'));
-
   try {
     await post.save();
 
@@ -166,9 +163,6 @@ async function toggleThumbsDown(req, res) {
       comment.commentThumbsUp.splice(index, 1);
     }
   }
-
-  // To-do: Use the referer attribute to redirect user back to the page they were on:
-  console.log('the Referer is: ', req.get('referer'));
 
   try {
     await post.save();
