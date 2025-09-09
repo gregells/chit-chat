@@ -35,11 +35,11 @@ The project was planned out in a Trello board, view it on Trello [here.](https:/
 
 The Entity Relationship Diagram (ERD) was made using Lucid Chart and can be seen in the Trello board.
 
-Wireframes of the various pages were made using XXX and can be seen in the Trello board.
+Wireframes of the different pages were made using [wireframe|cc](wireframe.cc) and can be seen in the Trello board.
 
 ## Future Development Plans:
 * Expand search functionality to include comments and user names.
-* Add ability to sort posts by thumbs-up, thumbs-down, newer, older.
+* Add ability to sort posts by thumbs-up, thumbs-down, newest, oldest.
 * Add ability to see edit history of posts & comments.
 
 ## Known Bugs:
