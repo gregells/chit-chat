@@ -35,7 +35,7 @@ The project was planned out in a Trello board, view it on Trello [here.](https:/
 
 The Entity Relationship Diagram (ERD) was made using Lucid Chart and can be seen in the Trello board.
 
-Wireframes of the different pages were made using [wireframe|cc](wireframe.cc) and can be seen in the Trello board.
+Wireframes of the different pages were made using [wireframe|cc](https://wireframe.cc/) and can be seen in the Trello board.
 
 ## Future Development Plans:
 * Expand search functionality to include comments and user names.
