@@ -19,14 +19,14 @@ To create, edit, delete, or vote on posts and comments, users must sign-in using
 | My Posts&nbsp;&nbsp; | All Users&nbsp;&nbsp; | Search |
 
 ## Technologies Used:
-* Node.js: the app is built using a Node.js server.
-* Express: the server uses the Express framework.
-* MongoDB: data is persisted to a MongoDB database.
-* Mongoose: the database is interacted with using the Mongoose library.
-* OAuth: authentication is provided by Google's OAuth API via the Passport library.
-* CSS: the styling is achieved using the Bootstrap CSS framework.
-* Heroku: the live website is hosted on Heroku.
-* Atlas: the database is hosted on MongoDB's Atlas service.
+* __Node.js__: the app is built using a Node.js server.
+* __Express__: the server uses the Express framework.
+* __MongoDB__: data is persisted to a MongoDB database.
+* __Mongoose__: the database is interacted with using the Mongoose library.
+* __OAuth__: authentication is provided by Google's OAuth API via the Passport library.
+* __CSS__: the styling is achieved using the Bootstrap CSS framework.
+* __Heroku__: the live website is hosted on Heroku.
+* __Atlas__: the database is hosted on MongoDB's Atlas service.
 
 ## Getting Started:
 [Try the live website here.](https://chit-chat-5142bec3ce1d.herokuapp.com/)
