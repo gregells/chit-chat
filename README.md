@@ -33,7 +33,7 @@ To create, edit, delete, or vote on posts and comments, users must sign-in using
 
 The project was planned out in a Trello board, view it on Trello [here.](https://trello.com/b/4HMmkMu4/chit-chat-project-planning)
 
-The Entity Relationship Diagram (ERD) was made using Lucid Chart and can be seen in the Trello board.
+The Entity Relationship Diagram (ERD) was made using [Lucid Chart](https://www.lucidchart.com) and can be seen in the Trello board.
 
 Wireframes of the different pages were made using [wireframe|cc](https://wireframe.cc/) and can be seen in the Trello board.
 
