@@ -6,7 +6,7 @@ Visitors to the site may browse posts and comments without signing in.
 To create, edit, delete, or vote on posts and comments, users must sign-in using a Google account.
 
 ## Screenshots:
-| ![Home Page](screenshots/1_home.png) | ![Navbar - Visitors](screenshots/2_nav_visitor.png) | ![Navbar - Users](screenshots/2_nav_user.png) |
+<!-- | ![Home Page](screenshots/1_home.png) | ![Navbar - Visitors](screenshots/2_nav_visitor.png) | ![Navbar - Users](screenshots/2_nav_user.png) |
 |:---:|:---:|:---:|
 | Home Page&nbsp;&nbsp;&nbsp;&nbsp; | Navbar - Visitors | Navbar - Users&nbsp;&nbsp;&nbsp; |
 
@@ -16,7 +16,55 @@ To create, edit, delete, or vote on posts and comments, users must sign-in using
 
 | ![My Posts](screenshots/5_my_posts.png) | ![All Users](screenshots/6_all_users.png) | ![Search](screenshots/7_search.png) |
 |:---:|:---:|:---:|
-| My Posts&nbsp;&nbsp; | All Users&nbsp;&nbsp; | Search |
+| My Posts&nbsp;&nbsp; | All Users&nbsp;&nbsp; | Search | -->
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="33%"><img src="screenshots/1_home.png"/></th>
+      <th width="33%"><img src="screenshots/2_nav_visitor.png"/></th>
+      <th width="33%"><img src="screenshots/2_nav_user.png"/></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="33%" align="center">Home Page</td>
+      <td width="33%" align="center">Navbar - Visitors</td>
+      <td width="33%" align="center">Navbar - Users</td>
+    </tr>
+  </tbody>
+</table>
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="33%"><img src="screenshots/3_post_visitor.png"/></th>
+      <th width="33%"><img src="screenshots/3_post_user.png"/></th>
+      <th width="33%"><img src="screenshots/4_new_post.png"/></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="33%" align="center">Post - Visitors</td>
+      <td width="33%" align="center">Post - Users</td>
+      <td width="33%" align="center">New Post</td>
+    </tr>
+  </tbody>
+</table>
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="33%"><img src="screenshots/5_my_posts.png"/></th>
+      <th width="33%"><img src="screenshots/6_all_users.png"/></th>
+      <th width="33%"><img src="screenshots/7_search.png"/></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="33%" align="center">My Posts</td>
+      <td width="33%" align="center">All Users</td>
+      <td width="33%" align="center">Search</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Technologies Used:
 * __Node.js__: the app is built using a Node.js server.
