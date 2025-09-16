@@ -1,5 +1,5 @@
 # Chit-Chat
-This project is a Twitter-like app where users can make posts, comment on posts, and thumbs-up/thumbs-down posts and comments.
+This project is a MEN-stack Twitter/Threads-like app where users can make posts, comment on posts, and thumbs-up/thumbs-down posts and comments.
 
 Visitors to the site may browse posts and comments without signing in.
 
