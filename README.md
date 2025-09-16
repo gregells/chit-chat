@@ -44,3 +44,6 @@ Wireframes of the different pages were made using [wireframe|cc](https://wirefra
 
 ## Known Bugs:
 No known bugs at this time.
+
+## Acknowledgements:
+The SVG of the favicon was created using [picsvg.com](https://picsvg.com/).
